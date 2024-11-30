@@ -39,7 +39,7 @@ public class EventCreation {
 
         // Create Event button
         JButton createEventButton = new JButton("Create Event");
-        createEventButton.setBackground(new Color(0, 102, 204));
+        createEventButton.setBackground(new Color(84, 194, 66));
         createEventButton.setForeground(Color.WHITE);
 
         // Add components to the panel
