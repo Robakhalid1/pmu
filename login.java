@@ -17,21 +17,39 @@ public class login {
         // Create JFrame for login window
         JFrame loginFrame = new JFrame("PmuMentor Login");
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        loginFrame.setSize(400, 300);
+        loginFrame.setSize(450, 350);
+        loginFrame.setLocationRelativeTo(null); // Center window on screen
         loginFrame.setLayout(new BorderLayout());
+        loginFrame.getContentPane().setBackground(new Color(245, 245, 245)); // Light background color
 
         // Create a panel for login form
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 2, 10, 10));
+        panel.setLayout(new GridLayout(4, 2, 10, 10));
+        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30)); // Add padding to the panel
+        panel.setBackground(new Color(255, 255, 255)); // White background for the form
 
         // Add labels and text fields
         JLabel emailLabel = new JLabel("PMU Email:");
+        emailLabel.setFont(new Font("Arial", Font.PLAIN, 16));
         JTextField emailField = new JTextField();
-        JLabel passwordLabel = new JLabel("Password:");
-        JPasswordField passwordField = new JPasswordField();
+        emailField.setFont(new Font("Arial", Font.PLAIN, 14));
+        emailField.setBorder(BorderFactory.createLineBorder(new Color(150, 150, 150))); // Gray border for text field
 
-        // Add Login button
+        JLabel passwordLabel = new JLabel("Password:");
+        passwordLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        JPasswordField passwordField = new JPasswordField();
+        passwordField.setFont(new Font("Arial", Font.PLAIN, 14));
+        passwordField.setBorder(BorderFactory.createLineBorder(new Color(150, 150, 150))); // Gray border for text field
+
+        // Add Login button with a modern look
         JButton loginButton = new JButton("Login");
+        loginButton.setFont(new Font("Arial", Font.BOLD, 16));
+        loginButton.setBackground(new Color(58, 123, 255)); // Blue color for the button
+        loginButton.setForeground(Color.WHITE); // White text color
+        loginButton.setFocusPainted(false);
+        loginButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Padding inside the button
+        loginButton.setCursor(new Cursor(Cursor.HAND_CURSOR)); // Change cursor to hand when hovered
+        loginButton.setBorderPainted(false); // Remove border
 
         // Add components to panel
         panel.add(emailLabel);
@@ -46,6 +64,7 @@ public class login {
 
         // Add a status label at the bottom
         JLabel statusLabel = new JLabel("", SwingConstants.CENTER);
+        statusLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         loginFrame.add(statusLabel, BorderLayout.SOUTH);
 
         // Set frame visibility
@@ -61,7 +80,7 @@ public class login {
                 if (validateEmail(email)) {
                     if (authenticateUser(email, password)) {
                         statusLabel.setText("Login successful! Welcome to PmuMentor.");
-                        statusLabel.setForeground(Color.GREEN);
+                        statusLabel.setForeground(new Color(34, 177, 76)); // Green color for success
                         // Open user dashboard (placeholder)
                         JOptionPane.showMessageDialog(loginFrame, "Welcome, " + email + "!");
                         loginFrame.dispose(); // Close login frame
